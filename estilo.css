@@ -3,6 +3,7 @@ body{
   padding: 0%;
   font-family: 'Roboto', sans-serif;
   background-color: black;
+  
 }
 .head {
   background-color: black;
@@ -15,79 +16,129 @@ body{
   font-weight: bold;
 }
 /*_______________________________________________________________________________*/
-
-
-
-.container{
-  margin: auto;
-  background-color: white;
-  width: 80%;
-  padding:10%;
-  padding-top:30px;
-background-size: cover;
-  background-position: center center;
+img{
+  max-width: 100%;
 }
 
-ul, li {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-ul.slider{
+.container-all{
   position: relative;
   width: 100%;
-  height: 300px;
-  background-size: cover;
-  background-position: center center;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-ul.slider li {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    opacity: 0;
-    width: inherit;
-    height: inherit;
-    transition: opacity .5s;
-    background:#fff;
+.slide{
+  display: flex;
+  transform: translate3d(0, 0, 0);
+  transition: all 600ms;
+  animation-name: autoplay;
+  animation-duration: 6.5s;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
 }
 
-ul.slider li img{
+.item-slide{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  max-width: 100%;
+}
+
+.pagination{
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 300px;
-  object-fit: cover;
 }
 
-ul.slider li:first-child {
-    opacity: 1; /*Mostramos el primer <li>*/
-}
-
-ul.slider li:target {
-    opacity: 1; /*Mostramos el <li> del enlace que pulsemos*/
-}
-
-.menu{
+.pagination-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid white;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 0 10px;
   text-align: center;
-  margin: 20px;
+  transition: all 300ms;
 }
 
-.menu li{
-  display: inline-block;
-  text-align: center;
+.pagination-item:hover{
+  transform: scale(2);
 }
 
-.menu li a{
+.pagination-item img{
   display: inline-block;
-  color: white;
-  text-decoration: none;
-  background-color: grey;
-  padding: 10px;
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
-  border-radius: 100%;
-}/*_______________________________________________________________________________*/
+  max-width: none;
+  height: 100%;
+  transform: scale(1);
+  opacity: 0;
+  transition: all 300ms;
+}
+
+.pagination-item:hover img{
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+input[id="1"]:checked ~ .slide{
+  animation: none;
+  transform: translate3d(0, 0, 0);
+}
+
+input[id="1"]:checked ~ .pagination .pagination-item[for="1"]{
+  background: #fff;
+}
+
+input[id="2"]:checked ~ .slide{
+  animation: none;
+  transform: translate3d(calc(-100% * 1), 0, 0);
+}
+
+input[id="2"]:checked ~ .pagination .pagination-item[for="2"]{
+  background: #fff;
+}
+
+
+input[id="3"]:checked ~ .slide{
+  animation: none;
+  transform: translate3d(calc(-100% * 2), 0, 0);
+}
+
+input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
+  background: #fff;
+}
+
+
+@keyframes autoplay{
+  33%{
+      transform: translate3d(calc(-100% * 0), 0, 0);
+  }
+  
+  66%{
+      transform: translate3d(calc(-100% * 1), 0, 0);
+  }
+  
+  100%{
+      transform: translate3d(calc(-100% * 2), 0, 0);
+  }
+}
+
+
+
+/*_______________________________________________________________________________*/
 .uno {
   background-color: white;
   background-size: cover;
