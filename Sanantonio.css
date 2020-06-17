@@ -14,6 +14,10 @@ body{
   font-size: 50px;
   z-index: 9;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 /*_______________________________________________________________________________*/
 
@@ -29,16 +33,6 @@ body{
   color:#424242;
   text-align: center;
 }
-.unouno {
-  background-image: url("iglesia.jpg");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 200px;
-  filter: brightness(0.4);
-  margin: 10px;
-}
 
 .dos {
   background-color: white;
@@ -46,7 +40,7 @@ body{
   font-size: 50px;
   font-weight: bold;
   width: 100%;
-  height: 1500px;
+  height: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,33 +85,19 @@ body{
 }
 
 
-.tres {
-  background-color:white;
-  width: 100%;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
 
 .cuatro {
   background-color: white;
   width: 100%;
-  height: 500px;
+  height: 400px; 
   display: flex;
   align-items: center;
-  justify-content: center;
-  
+  justify-content: space-evenly;
+}
 }
 .cuatrouno {
-  width: 95%;
-  height: 95%;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  font-weight: bold;
+  width: 100%;
+  height: 15%;
 }
 
 .pie {
